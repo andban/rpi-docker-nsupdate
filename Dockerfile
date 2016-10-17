@@ -1,4 +1,4 @@
-FROM resin/raspberrypi2-alpine:3.4
+FROM resin/raspberrypi-alpine:3.4
 
 MAINTAINER Andreas Bannach <andreas@borntohula.de>
 
@@ -16,8 +16,8 @@ RUN apk --no-cache add \
   && chmod +x /nsupdate/nsupdate.sh
 
 COPY nsupdate.d /nsupdate/nsupdate.d
-COPY startup /startup
+COPY startup.sh /startup.sh
 
-RUN chmod +x /startup
+RUN chmod +x /startup.sh
 
-CMD ["/startup"]
+CMD ["/startup.sh"]
