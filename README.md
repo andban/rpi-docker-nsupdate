@@ -12,10 +12,6 @@ A Raspberry PI that is running Linux and Docker (like using the [resinOS](https:
 Clone this repository and place your `.config` files into the `nsupdate.d` folder.
 See the [here](https://github.com/chrisb86/nsupdate/blob/master/nsupdate.d/sample.config.dist) for an example.
 
-```bash
-$ git clone https://github.com/andban/rpi-docker-nsupdate
-$ cd rpi-docker-nsupdate
-```
 
 Build the Docker image on the host:
 
@@ -30,6 +26,11 @@ or using the resin-device-toolbox on your desktop:
 $ rdt push --source .
 ```
 
+or downloading the image and mounting your configuration files as volume:
+
+```bash
+$ docker run --d --restart=always --name nsupdate -v ./nsupdate.d:/nsupdate/nsupdate.d andban/rpi-nsupdate
+```
 
 ## License
 
